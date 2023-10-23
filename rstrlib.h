@@ -3,13 +3,14 @@
 #ifndef RSTRLIB_H
 #define RSTRLIB_H
 
-char * cleanstr(char * inputToClean) {
-    // Clean the input
-    inputToClean[strcspn(inputToClean, "\r\n")] = 0;
-    return inputToClean;
+char * cleanstr(char * strToClean) {
+    // Clean a string
+    strToClean[strcspn(strToClean, "\r\n")] = 0;
+    return strToClean;
 }
 
 char * lowerstr(char * str) {
+    // Transform a string into lowercase
     for (int i = 0; str[i]; i++) {
         int letter = (int)str[i];
         letter = tolower(letter);
@@ -19,6 +20,7 @@ char * lowerstr(char * str) {
 }
 
 char * upperstr(char * str) {
+    // Transform a string into uppercase
     for (int i = 0; str[i]; i++) {
         int letter = (int)str[i];
         letter = toupper(letter);
