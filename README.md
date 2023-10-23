@@ -9,9 +9,11 @@ A collcection of header files to use for my convenience.
 
 ## Installing
 
-### Script
+### Makefile
 
-Run `install.sh` as `root`.
+*You must have `make` installed to follow this step.*
+
+Run `make install` as `root`.
 
 ### Manually
 
@@ -19,10 +21,12 @@ Copy all the header files into `/usr/include` or another directory fitting for h
 
 ## Uninstalling
 
-### Script
+### Makefile
 
-Run `uninstall.sh` as `root`.
+*You must have `make` installed to follow this step.*
+
+Run `make uninstall` as `root`.
 
 ### Manually
 
-Delete all the previously installed header files from `/usr/include` or another directory fitting for header files.
+Delete all the previously installed header files from `/usr/include` or another directory you choose when installing manually.
