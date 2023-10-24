@@ -30,3 +30,7 @@ Run `make uninstall` as `root`.
 ### Manually
 
 Delete all the previously installed header files from `/usr/include` or another directory you choose when installing manually.
+
+*Project under the [GPLv3 License](https://www.gnu.org/licenses/gpl-3.0.html).*
+
+*Copyright (C) 2023 redd*
