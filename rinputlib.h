@@ -21,7 +21,7 @@ char * inputstr(char * askStr, int strSize, char * lengthError, int acceptNull, 
     }
 
     if (strcmp(lengthError, "") == 0) {
-        lengthError = "La longueur de l'entrée est invalide.";
+        lengthError = "The length of the input is invalid.";
     }
 
     if (acceptNull != 0 && acceptNull != 1) {
@@ -29,15 +29,15 @@ char * inputstr(char * askStr, int strSize, char * lengthError, int acceptNull, 
     }
 
     if (strcmp(nullError, "") == 0) {
-        nullError = "L'entrée est invalide.'";
+        nullError = "The input is invalid.";
     }
     
     if (acceptNull == 0) {
         do {
             printf("%s", askStr);
             if (!fgets(str, 1024, stdin)) {
-                printf("\033[1;31mErreur: %s\n", strerror(errno));
-                printf("Une erreur inattendue est survenue. Sortie...");
+                printf("\033[1;31mError: %s\n", strerror(errno));
+                printf("An unexpected error has occurred. Exiting...");
                 exit(EXIT_FAILURE);
             }
 
@@ -54,8 +54,8 @@ char * inputstr(char * askStr, int strSize, char * lengthError, int acceptNull, 
         do {
             printf("%s", askStr);
             if (!fgets(str, 1024, stdin)) {
-                printf("\033[1;31mErreur: %s\n", strerror(errno));
-                printf("Une erreur inattendue est survenue. Sortie...");
+                printf("\033[1;31mError: %s\n", strerror(errno));
+                printf("An unexpected error has occurred. Exiting...");
                 exit(EXIT_FAILURE);
             }
             cleanstr(str);
@@ -93,19 +93,19 @@ int inputint(char * askStr, int intSize, char * lengthError, int acceptNull, cha
     }
 
     if (strcmp(lengthError, "") == 0) {
-        lengthError = "La longueur de l'entrée est invalide.";
+        lengthError = "The length of the input is invalid.";
     }
 
     if (strcmp(nullError, "") == 0) {
-        nullError = "L'entrée est invalide.'";
+        nullError = "The input is invalid.";
     }
 
     if (acceptNull == 0) {
         do {
             printf("%s", askStr);
             if (!fgets(str, 1024, stdin)) {
-                printf("\033[1;31mErreur: %s\n", strerror(errno));
-                printf("Une erreur inattendue est survenue. Sortie...");
+                printf("\033[1;31mError: %s\n", strerror(errno));
+                printf("An unexpected error has occurred. Exiting...");
                 exit(EXIT_FAILURE);
             }
 
@@ -116,7 +116,7 @@ int inputint(char * askStr, int intSize, char * lengthError, int acceptNull, cha
             errno = 0;
             convertedLong = strtol(str, &endPtr, 10);
             if (errno == ERANGE) {
-                printf("\033[1;31mErreur: %s\n", strerror(errno));
+                printf("\033[1;31mError: %s\n", strerror(errno));
                 printf("\033[0m%s\n", lengthError);
                 isInputValid = 0;
             } else if (strlen(str) > intSize) {
@@ -133,8 +133,8 @@ int inputint(char * askStr, int intSize, char * lengthError, int acceptNull, cha
         do {
             printf("%s", askStr);
             if (!fgets(str, 1024, stdin)) {
-                printf("\033[1;31mErreur: %s\n", strerror(errno));
-                printf("Une erreur inattendue est survenue. Sortie...");
+                printf("\033[1;31mError: %s\n", strerror(errno));
+                printf("An unexpected error has occurred. Exiting...");
                 exit(EXIT_FAILURE);
             }
 
@@ -145,7 +145,7 @@ int inputint(char * askStr, int intSize, char * lengthError, int acceptNull, cha
             errno = 0;
             convertedLong = strtol(str, &endPtr, 10);
             if (errno == ERANGE) {
-                printf("\033[1;31mErreur: %s\n", strerror(errno));
+                printf("\033[1;31mError: %s\n", strerror(errno));
                 printf("\033[0m%s\n", lengthError);
                 isInputValid = 0;
             } else if (strlen(str) > intSize) {
@@ -183,19 +183,19 @@ double inputdbl(char * askStr, int dblSize, char * lengthError, int acceptNull, 
     }
 
     if (strcmp(lengthError, "") == 0) {
-        lengthError = "La longueur de l'entrée est invalide.";
+        lengthError = "The length of the input is invalid.";
     }
 
     if (strcmp(nullError, "") == 0) {
-        nullError = "L'entrée est invalide.'";
+        nullError = "The input is invalid.";
     }
 
     if (acceptNull == 0) {
         do {
             printf("%s", askStr);
             if (!fgets(str, 1024, stdin)) {
-                printf("\033[1;31mErreur: %s\n", strerror(errno));
-                printf("Une erreur inattendue est survenue. Sortie...");
+                printf("\033[1;31mError: %s\n", strerror(errno));
+                printf("An unexpected error has occurred. Exiting...");
                 exit(EXIT_FAILURE);
             }
 
@@ -206,7 +206,7 @@ double inputdbl(char * askStr, int dblSize, char * lengthError, int acceptNull, 
             errno = 0;
             nbr = strtod(str, &endPtr);
             if (errno == ERANGE) {
-                printf("\033[1;31mErreur: %s\n", strerror(errno));
+                printf("\033[1;31mError: %s\n", strerror(errno));
                 printf("\033[0m%s\n", lengthError);
                 isInputValid = 0;
             } else if (strlen(str) > dblSize) {
@@ -222,8 +222,8 @@ double inputdbl(char * askStr, int dblSize, char * lengthError, int acceptNull, 
         do {
             printf("%s", askStr);
             if (!fgets(str, 1024, stdin)) {
-                printf("\033[1;31mErreur: %s\n", strerror(errno));
-                printf("Une erreur inattendue est survenue. Sortie...");
+                printf("\033[1;31mError: %s\n", strerror(errno));
+                printf("An unexpected error has occurred. Exiting...");
                 exit(EXIT_FAILURE);
             }
 
@@ -234,7 +234,7 @@ double inputdbl(char * askStr, int dblSize, char * lengthError, int acceptNull, 
             errno = 0;
             nbr = strtod(str, &endPtr);
             if (errno == ERANGE) {
-                printf("\033[1;31mErreur: %s\n", strerror(errno));
+                printf("\033[1;31mError: %s\n", strerror(errno));
                 printf("\033[0m%s\n", lengthError);
                 isInputValid = 0;
             } else if (strlen(str) > dblSize) {
@@ -271,19 +271,19 @@ float inputfloat(char * askStr, int dblSize, char * lengthError, int acceptNull,
     }
 
     if (strcmp(lengthError, "") == 0) {
-        lengthError = "La longueur de l'entrée est invalide.";
+        lengthError = "The length of the input is invalid.";
     }
 
     if (strcmp(nullError, "") == 0) {
-        nullError = "L'entrée est invalide.'";
+        nullError = "The input is invalid.";
     }
 
     if (acceptNull == 0) {
         do {
             printf("%s", askStr);
             if (!fgets(str, 1024, stdin)) {
-                printf("\033[1;31mErreur: %s\n", strerror(errno));
-                printf("Une erreur inattendue est survenue. Sortie...");
+                printf("\033[1;31mError: %s\n", strerror(errno));
+                printf("An unexpected error has occurred. Exiting...");
                 exit(EXIT_FAILURE);
             }
 
@@ -294,7 +294,7 @@ float inputfloat(char * askStr, int dblSize, char * lengthError, int acceptNull,
             errno = 0;
             nbr = (float)strtod(str, &endPtr);
             if (errno == ERANGE) {
-                printf("\033[1;31mErreur: %s\n", strerror(errno));
+                printf("\033[1;31mError: %s\n", strerror(errno));
                 printf("\033[0m%s\n", lengthError);
                 isInputValid = 0;
             } else if (strlen(str) > dblSize) {
@@ -310,8 +310,8 @@ float inputfloat(char * askStr, int dblSize, char * lengthError, int acceptNull,
         do {
             printf("%s", askStr);
             if (!fgets(str, 1024, stdin)) {
-                printf("\033[1;31mErreur: %s\n", strerror(errno));
-                printf("Une erreur inattendue est survenue. Sortie...");
+                printf("\033[1;31mError: %s\n", strerror(errno));
+                printf("An unexpected error has occurred. Exiting...");
                 exit(EXIT_FAILURE);
             }
 
@@ -322,7 +322,7 @@ float inputfloat(char * askStr, int dblSize, char * lengthError, int acceptNull,
             errno = 0;
             nbr = (float)strtod(str, &endPtr);
             if (errno == ERANGE) {
-                printf("\033[1;31mErreur: %s\n", strerror(errno));
+                printf("\033[1;31mError: %s\n", strerror(errno));
                 printf("\033[0m%s\n", lengthError);
                 isInputValid = 0;
             } else if (strlen(str) > dblSize) {
@@ -359,19 +359,19 @@ long inputlong(char * askStr, int intSize, char * lengthError, int acceptNull, c
     }
 
     if (strcmp(lengthError, "") == 0) {
-        lengthError = "La longueur de l'entrée est invalide.";
+        lengthError = "The length of the input is invalid.";
     }
 
     if (strcmp(nullError, "") == 0) {
-        nullError = "L'entrée est invalide.'";
+        nullError = "The input is invalid.";
     }
 
     if (acceptNull == 0) {
         do {
             printf("%s", askStr);
             if (!fgets(str, 1024, stdin)) {
-                printf("\033[1;31mErreur: %s\n", strerror(errno));
-                printf("Une erreur inattendue est survenue. Sortie...");
+                printf("\033[1;31mError: %s\n", strerror(errno));
+                printf("An unexpected error has occurred. Exiting...");
                 exit(EXIT_FAILURE);
             }
 
@@ -382,7 +382,7 @@ long inputlong(char * askStr, int intSize, char * lengthError, int acceptNull, c
             errno = 0;
             nbr = strtol(str, &endPtr, 10);
             if (errno == ERANGE) {
-                printf("\033[1;31mErreur: %s\n", strerror(errno));
+                printf("\033[1;31mError: %s\n", strerror(errno));
                 printf("\033[0m%s\n", lengthError);
                 isInputValid = 0;
             } else if (strlen(str) > intSize) {
@@ -398,8 +398,8 @@ long inputlong(char * askStr, int intSize, char * lengthError, int acceptNull, c
         do {
             printf("%s", askStr);
             if (!fgets(str, 1024, stdin)) {
-                printf("\033[1;31mErreur: %s\n", strerror(errno));
-                printf("Une erreur inattendue est survenue. Sortie...");
+                printf("\033[1;31mError: %s\n", strerror(errno));
+                printf("An unexpected error has occurred. Exiting...");
                 exit(EXIT_FAILURE);
             }
 
@@ -410,7 +410,7 @@ long inputlong(char * askStr, int intSize, char * lengthError, int acceptNull, c
             errno = 0;
             nbr = strtol(str, &endPtr, 10);
             if (errno == ERANGE) {
-                printf("\033[1;31mErreur: %s\n", strerror(errno));
+                printf("\033[1;31mError: %s\n", strerror(errno));
                 printf("\033[0m%s\n", lengthError);
                 isInputValid = 0;
             } else if (strlen(str) > intSize) {
