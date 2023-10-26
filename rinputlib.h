@@ -31,24 +31,22 @@ char * inputstr(char * askStr, int strSize, char * lengthError, int acceptNull, 
     static char str[1024];
     int isInputValid;
 
-    if (strcmp(askStr, "") == 0) {
-        askStr = ">>> ";
-    }
-
-    if (strSize == 0) {
+    if (strSize != 0) {
+        if (strcmp(lengthError, "") == 0) {
+            lengthError = "The length of the input is invalid.";
+        }
+    } else {
         strSize = 1024;
-    }
-
-    if (strcmp(lengthError, "") == 0) {
-        lengthError = "The length of the input is invalid.";
     }
 
     if (acceptNull != 0 && acceptNull != 1) {
         acceptNull = 0;
     }
 
-    if (strcmp(nullError, "") == 0) {
-        nullError = "The input is invalid.";
+    if (acceptNull == 1) {
+        if (strcmp(nullError, "") == 0) {
+            nullError = "The input is invalid.";
+        }
     }
     
     if (acceptNull == 0) {
@@ -103,20 +101,21 @@ int inputint(char * askStr, int intSize, char * lengthError, int acceptNull, cha
     int isInputValid;
     int nbr;
 
-    if (strcmp(askStr, "") == 0) {
-        askStr = ">>> ";
+    if (intSize == 0 || intSize > 9) {
+        if (strcmp(lengthError, "") == 0) {
+            lengthError = "The length of the input is invalid.";
+        }
+        intSize = 9;
     }
 
-    if (intSize == 0 || intSize > 10) {
-        intSize = 10;
+    if (acceptNull != 0 && acceptNull != 1) {
+        acceptNull = 0;
     }
 
-    if (strcmp(lengthError, "") == 0) {
-        lengthError = "The length of the input is invalid.";
-    }
-
-    if (strcmp(nullError, "") == 0) {
-        nullError = "The input is invalid.";
+    if (acceptNull == 1) {
+        if (strcmp(nullError, "") == 0) {
+            nullError = "The input is invalid.";
+        }
     }
 
     if (acceptNull == 0) {
@@ -144,7 +143,7 @@ int inputint(char * askStr, int intSize, char * lengthError, int acceptNull, cha
             } else if (*endPtr && *endPtr != '\n') {
                 isInputValid = 0;
             } else {
-                nbr = (int)convertedLong;
+                nbr = (int) convertedLong;
                 isInputValid = 1;
             }
         } while (!isInputValid);
@@ -193,20 +192,21 @@ double inputdbl(char * askStr, int dblSize, char * lengthError, int acceptNull, 
     double nbr;
     int isInputValid;
 
-    if (strcmp(askStr, "") == 0) {
-        askStr = ">>> ";
+    if (dblSize == 0 || dblSize > 9) {
+        if (strcmp(lengthError, "") == 0) {
+            lengthError = "The length of the input is invalid.";
+        }
+        dblSize = 9;
     }
 
-    if (dblSize == 0 || dblSize > 10) {
-        dblSize = 10;
+    if (acceptNull != 0 && acceptNull != 1) {
+        acceptNull = 0;
     }
 
-    if (strcmp(lengthError, "") == 0) {
-        lengthError = "The length of the input is invalid.";
-    }
-
-    if (strcmp(nullError, "") == 0) {
-        nullError = "The input is invalid.";
+    if (acceptNull == 1) {
+        if (strcmp(nullError, "") == 0) {
+            nullError = "The input is invalid.";
+        }
     }
 
     if (acceptNull == 0) {
@@ -275,26 +275,27 @@ double inputdbl(char * askStr, int dblSize, char * lengthError, int acceptNull, 
     return nbr;
 }
 
-float inputfloat(char * askStr, int dblSize, char * lengthError, int acceptNull, char * nullError) {
+float inputfloat(char * askStr, int floatSize, char * lengthError, int acceptNull, char * nullError) {
     // Get a float input
     static char str[1024];
     float nbr;
     int isInputValid;
 
-    if (strcmp(askStr, "") == 0) {
-        askStr = ">>> ";
+    if (floatSize == 0 || floatSize > 9) {
+        if (strcmp(lengthError, "") == 0) {
+            lengthError = "The length of the input is invalid.";
+        }
+        floatSize = 9;
     }
 
-    if (dblSize == 0 || dblSize > 10) {
-        dblSize = 10;
+    if (acceptNull != 0 && acceptNull != 1) {
+        acceptNull = 0;
     }
 
-    if (strcmp(lengthError, "") == 0) {
-        lengthError = "The length of the input is invalid.";
-    }
-
-    if (strcmp(nullError, "") == 0) {
-        nullError = "The input is invalid.";
+    if (acceptNull == 1) {
+        if (strcmp(nullError, "") == 0) {
+            nullError = "The input is invalid.";
+        }
     }
 
     if (acceptNull == 0) {
@@ -316,7 +317,7 @@ float inputfloat(char * askStr, int dblSize, char * lengthError, int acceptNull,
                 printf("\033[1;31mError: %s\n", strerror(errno));
                 printf("\033[0m%s\n", lengthError);
                 isInputValid = 0;
-            } else if (strlen(str) > dblSize) {
+            } else if (strlen(str) > floatSize) {
                 printf("%s\n", lengthError);
                 isInputValid = 0;
             } else if (*endPtr && *endPtr != '\n') {
@@ -344,7 +345,7 @@ float inputfloat(char * askStr, int dblSize, char * lengthError, int acceptNull,
                 printf("\033[1;31mError: %s\n", strerror(errno));
                 printf("\033[0m%s\n", lengthError);
                 isInputValid = 0;
-            } else if (strlen(str) > dblSize) {
+            } else if (strlen(str) > floatSize) {
                 printf("%s\n", lengthError);
                 isInputValid = 0;
             } else if (endPtr == str) {
@@ -363,26 +364,27 @@ float inputfloat(char * askStr, int dblSize, char * lengthError, int acceptNull,
     return nbr;
 }
 
-long inputlong(char * askStr, int intSize, char * lengthError, int acceptNull, char * nullError) {
+long inputlong(char * askStr, int longSize, char * lengthError, int acceptNull, char * nullError) {
     // Get a long input
     static char str[1024];
     long nbr;
     int isInputValid;
 
-    if (strcmp(askStr, "") == 0) {
-        askStr = ">>> ";
+    if (longSize == 0 || longSize > 9) {
+        if (strcmp(lengthError, "") == 0) {
+            lengthError = "The length of the input is invalid.";
+        }
+        longSize = 9;
     }
 
-    if (intSize == 0 || intSize > 10) {
-        intSize = 10;
+    if (acceptNull != 0 && acceptNull != 1) {
+        acceptNull = 0;
     }
 
-    if (strcmp(lengthError, "") == 0) {
-        lengthError = "The length of the input is invalid.";
-    }
-
-    if (strcmp(nullError, "") == 0) {
-        nullError = "The input is invalid.";
+    if (acceptNull == 1) {
+        if (strcmp(nullError, "") == 0) {
+            nullError = "The input is invalid.";
+        }
     }
 
     if (acceptNull == 0) {
@@ -404,7 +406,7 @@ long inputlong(char * askStr, int intSize, char * lengthError, int acceptNull, c
                 printf("\033[1;31mError: %s\n", strerror(errno));
                 printf("\033[0m%s\n", lengthError);
                 isInputValid = 0;
-            } else if (strlen(str) > intSize) {
+            } else if (strlen(str) > longSize) {
                 printf("%s\n", lengthError);
                 isInputValid = 0;
             } else if (*endPtr && *endPtr != '\n') {
@@ -432,7 +434,7 @@ long inputlong(char * askStr, int intSize, char * lengthError, int acceptNull, c
                 printf("\033[1;31mError: %s\n", strerror(errno));
                 printf("\033[0m%s\n", lengthError);
                 isInputValid = 0;
-            } else if (strlen(str) > intSize) {
+            } else if (strlen(str) > longSize) {
                 printf("%s\n", lengthError);
                 isInputValid = 0;
             } else if (endPtr == str) {
