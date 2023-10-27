@@ -14,15 +14,15 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
- */
+*/
 
-// HEADERS
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <errno.h>
 #include <ctype.h>
 #include <rstrlib.h>
+#include <rstdio.h>
 #ifndef RINPUTLIB_H
 #define RINPUTLIB_H
 
@@ -92,6 +92,16 @@ char * inputstr(char * askStr, int strSize, char * lengthError, int acceptNull, 
     strcpy(returnStr, str);
 
     return returnStr;
+}
+
+char inputchar(char * askStr) {
+    // Get a char input
+    printf("%s", askStr);
+    char outchar = (char)getchar();
+
+    clearstdin();
+
+    return outchar;
 }
 
 int inputint(char * askStr, int intSize, char * lengthError, int acceptNull, char * nullError) {
