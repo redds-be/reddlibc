@@ -1,12 +1,36 @@
-DESTDIR = /usr/include
-FILES = $(wildcard *.h)
+BUILDIR = ./build
+BINDIR = ./bin
+CFILES = $(wildcard *.c)
+OBJFILES = $(wildcard *.o)
+LIBDESTDIR = /usr/lib
+HEADERDESTDIR = /usr/include
+HEADERS = $(wildcard *.h)
 
-all:
-	@echo Run \'make install\' to install the headers.
+all: obj lib
 
-# I know i could just do a simple cp but there can be exceptions.
+obj:
+	mkdir -p $(BUILDIR)
+	cp -v $(CFILES) $(HEADERS) $(BUILDIR) && cd $(BUILDIR) && gcc -c $(CFILES)
+
+lib:
+	mkdir -p $(BUILDIR)
+	mkdir -p $(BINDIR)
+	cd $(BUILDIR) && ar rcs reddlibc.a *.o && mv reddlibc.a ../$(BINDIR)
+
 install:
-	for header in $(FILES); do cp -v $$header $(DESTDIR); done
+	cp -v $(BINDIR)/reddlibc.a $(LIBDESTDIR)
+	for header in $(HEADERS); do cp -v $$header $(HEADERDESTDIR); done
 
 uninstall:
-	for header in $(FILES); do rm -fv $(DESTDIR)/$$header; done
+	rm -fv $(LIBDESTDIR)/reddlibc.a
+	for header in $(HEADERS); do rm -fv $(HEADERDESTDIR)/$$header; done
+
+format:
+	for f in $(CFILES); do clang-format -i $$f; done
+
+lint:
+	for f in $(CFILES); do clang-tidy $$f -- -Imy_project/include -DMY_DEFINES && cppcheck $$f && cpplint $$f && include-what-you-use $$f; done
+
+clean:
+	rm -rf $(BUILDIR)
+	rm -rf $(BINDIR)
