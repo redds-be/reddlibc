@@ -1,5 +1,5 @@
 /*
-A C header that handles some user inputs.
+A C program that handles some user inputs.
 Copyright (C) 2023 redd
 
 This program is free software: you can redistribute it and/or modify
@@ -16,17 +16,16 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+// HEADERS
+#include "./rlibinput.h"
 #include <errno.h>
-#include <ctype.h>
-#include <rstrlib.h>
 #include <rstdio.h>
-#ifndef RINPUTLIB_H
-#define RINPUTLIB_H
+#include <rstrlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-char * inputstr(char * askStr, int strSize, char * lengthError, int acceptNull, char * nullError) {
+char *inputstr(char *askStr, int strSize, char *lengthError, int acceptNull, char *nullError) {
     // Get a string input
     static char str[1024];
     int isInputValid;
@@ -48,7 +47,7 @@ char * inputstr(char * askStr, int strSize, char * lengthError, int acceptNull, 
             nullError = "The input is invalid.";
         }
     }
-    
+
     if (acceptNull == 0) {
         do {
             printf("%s", askStr);
@@ -88,23 +87,23 @@ char * inputstr(char * askStr, int strSize, char * lengthError, int acceptNull, 
         } while (!isInputValid);
     }
 
-    char * returnStr = (char *) malloc(strSize);
-    strcpy(returnStr, str);
+    char *returnStr = (char *) malloc(strSize);
+    snprintf(returnStr, strSize, "%s", str);
 
     return returnStr;
 }
 
-char inputchar(char * askStr) {
+char inputchar(char *askStr) {
     // Get a char input
     printf("%s", askStr);
-    char outchar = (char)getchar();
+    char outchar = (char) getchar();
 
     clearstdin();
 
     return outchar;
 }
 
-int inputint(char * askStr, int intSize, char * lengthError, int acceptNull, char * nullError) {
+int inputint(char *askStr, int intSize, char *lengthError, int acceptNull, char *nullError) {
     // Get an integer input
     static char str[1024];
     long convertedLong;
@@ -185,7 +184,7 @@ int inputint(char * askStr, int intSize, char * lengthError, int acceptNull, cha
             } else if (*endPtr && *endPtr != '\n') {
                 isInputValid = 0;
             } else {
-                nbr = (int)convertedLong;
+                nbr = (int) convertedLong;
                 isInputValid = 1;
             }
         } while (!isInputValid);
@@ -196,7 +195,7 @@ int inputint(char * askStr, int intSize, char * lengthError, int acceptNull, cha
     return nbr;
 }
 
-double inputdbl(char * askStr, int dblSize, char * lengthError, int acceptNull, char * nullError) {
+double inputdbl(char *askStr, int dblSize, char *lengthError, int acceptNull, char *nullError) {
     // Get a double input
     static char str[1024];
     double nbr;
@@ -285,7 +284,7 @@ double inputdbl(char * askStr, int dblSize, char * lengthError, int acceptNull, 
     return nbr;
 }
 
-float inputfloat(char * askStr, int floatSize, char * lengthError, int acceptNull, char * nullError) {
+float inputfloat(char *askStr, int floatSize, char *lengthError, int acceptNull, char *nullError) {
     // Get a float input
     static char str[1024];
     float nbr;
@@ -322,7 +321,7 @@ float inputfloat(char * askStr, int floatSize, char * lengthError, int acceptNul
             char *endPtr;
 
             errno = 0;
-            nbr = (float)strtod(str, &endPtr);
+            nbr = (float) strtod(str, &endPtr);
             if (errno == ERANGE) {
                 printf("\033[1;31mError: %s\n", strerror(errno));
                 printf("\033[0m%s\n", lengthError);
@@ -350,7 +349,7 @@ float inputfloat(char * askStr, int floatSize, char * lengthError, int acceptNul
             char *endPtr;
 
             errno = 0;
-            nbr = (float)strtod(str, &endPtr);
+            nbr = (float) strtod(str, &endPtr);
             if (errno == ERANGE) {
                 printf("\033[1;31mError: %s\n", strerror(errno));
                 printf("\033[0m%s\n", lengthError);
@@ -374,7 +373,7 @@ float inputfloat(char * askStr, int floatSize, char * lengthError, int acceptNul
     return nbr;
 }
 
-long inputlong(char * askStr, int longSize, char * lengthError, int acceptNull, char * nullError) {
+long inputlong(char *askStr, int longSize, char *lengthError, int acceptNull, char *nullError) {
     // Get a long input
     static char str[1024];
     long nbr;
@@ -462,8 +461,6 @@ long inputlong(char * askStr, int longSize, char * lengthError, int acceptNull, 
 
     return nbr;
 }
-
-#endif // RINPUTLIB_H
 
 /*
                _     _

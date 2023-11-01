@@ -1,5 +1,5 @@
 /*
-A C header that handles some standard input/output manipulation.
+A C program that handles some int manipulation.
 Copyright (C) 2023 redd
 
 This program is free software: you can redistribute it and/or modify
@@ -16,17 +16,21 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+// HEADERS
+#include "./rlibint.h"
 #include <stdio.h>
-#ifndef RSTDIO_H
-#define RSTDIO_H
 
-void clearstdin(void) {
-    // Clear stdin
-    int c;
-    while((c = getchar()) != '\n' && c != EOF);
+void intobinary(unsigned int nbr, unsigned int length) {
+    unsigned int i;
+    length = length-1;
+
+    if (length > 30) {
+        length = 30;
+    }
+
+    for (i = 1 << length; i > 0; i = i / 2)
+        (nbr & i) ? printf("1") : printf("0");
 }
-
-#endif // RSTDIO_H
 
 /*
                _     _

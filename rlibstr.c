@@ -1,5 +1,5 @@
 /*
-A C header that handles some char manipulation.
+A C program that handles some string manipulation.
 Copyright (C) 2023 redd
 
 This program is free software: you can redistribute it and/or modify
@@ -16,21 +16,36 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+// HEADERS
+#include "./rlibstr.h"
 #include <ctype.h>
-#ifndef RCHARLIB_H
-#define RCHARLIB_H
+#include <string.h>
 
-char lowerchar(char character) {
-    character = tolower(character);
-    return character;
+char *cleanstr(char *strToClean) {
+    // Clean a string
+    strToClean[strcspn(strToClean, "\r\n")] = 0;
+    return strToClean;
 }
 
-char upperchar(char character) {
-    character = toupper(character);
-    return character;
+char *lowerstr(char *str) {
+    // Transform a string into lowercase
+    for (int i = 0; str[i]; i++) {
+        int letter = (int) str[i];
+        letter = tolower(letter);
+        str[i] = (char) letter;
+    }
+    return str;
 }
 
-#endif // RCHARLIB_H
+char *upperstr(char *str) {
+    // Transform a string into uppercase
+    for (int i = 0; str[i]; i++) {
+        int letter = (int) str[i];
+        letter = toupper(letter);
+        str[i] = (char) letter;
+    }
+    return str;
+}
 
 /*
                _     _

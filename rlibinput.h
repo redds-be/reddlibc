@@ -1,5 +1,5 @@
 /*
-A C header that handles some int manipulation.
+A C header that handles some user inputs.
 Copyright (C) 2023 redd
 
 This program is free software: you can redistribute it and/or modify
@@ -16,23 +16,22 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include <stdio.h>
-#ifndef RINTLIB_H
-#define RINTLIB_H
+#ifndef REDDLIBC_RLIBINPUT_H
+#define REDDLIBC_RLIBINPUT_H
 
-void intobinary(unsigned int nbr, unsigned int length) {
-    unsigned int i;
-    length = length-1;
+char * inputstr(char * askStr, int strSize, char * lengthError, int acceptNull, char * nullError);
 
-    if (length > 30) {
-        length = 30;
-    }
+char inputchar(char * askStr);
 
-    for (i = 1 << length; i > 0; i = i / 2)
-        (nbr & i) ? printf("1") : printf("0");
-}
+int inputint(char * askStr, int intSize, char * lengthError, int acceptNull, char * nullError);
 
-#endif // RINTLIB_H
+double inputdbl(char * askStr, int dblSize, char * lengthError, int acceptNull, char * nullError);
+
+float inputfloat(char * askStr, int floatSize, char * lengthError, int acceptNull, char * nullError);
+
+long inputlong(char * askStr, int longSize, char * lengthError, int acceptNull, char * nullError);
+
+#endif // REDDLIBC_RLIBINPUT_H
 
 /*
                _     _

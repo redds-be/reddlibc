@@ -1,5 +1,5 @@
 /*
-A C header that handles some string manipulation.
+A C header that handles some int manipulation.
 Copyright (C) 2023 redd
 
 This program is free software: you can redistribute it and/or modify
@@ -16,39 +16,12 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-// HEADERS
-#include <string.h>
-#include <ctype.h>
-#ifndef RSTRLIB_H
-#define RSTRLIB_H
+#ifndef REDDLIBC_RLIBINT_H
+#define REDDLIBC_RLIBINT_H
 
-char * cleanstr(char * strToClean) {
-    // Clean a string
-    strToClean[strcspn(strToClean, "\r\n")] = 0;
-    return strToClean;
-}
+void intobinary(unsigned int nbr, unsigned int length);
 
-char * lowerstr(char * str) {
-    // Transform a string into lowercase
-    for (int i = 0; str[i]; i++) {
-        int letter = (int)str[i];
-        letter = tolower(letter);
-        str[i] = (char)letter;
-    }
-    return str;
-}
-
-char * upperstr(char * str) {
-    // Transform a string into uppercase
-    for (int i = 0; str[i]; i++) {
-        int letter = (int)str[i];
-        letter = toupper(letter);
-        str[i] = (char)letter;
-    }
-    return str;
-}
-
-#endif // RSTRLIB_H
+#endif // REDDLIBC_RLIBINT_H
 
 /*
                _     _
