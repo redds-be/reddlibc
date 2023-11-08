@@ -18,8 +18,8 @@ lib:
 	cd $(BUILDIR) && ar rcs reddlibc.a *.o && mv reddlibc.a ../$(BINDIR)
 
 install:
-	cp -v $(BINDIR)/reddlibc.a $(LIBDESTDIR)
-	for header in $(HEADERS); do cp -v $$header $(HEADERDESTDIR); done
+	install -o root -g root -m 0644 -v $(BINDIR)/reddlibc.a $(LIBDESTDIR)
+	for header in $(HEADERS); do install -o root -g root -m 0644 -v $$header $(HEADERDESTDIR); done
 
 uninstall:
 	rm -fv $(LIBDESTDIR)/reddlibc.a

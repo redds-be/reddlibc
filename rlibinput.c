@@ -18,9 +18,9 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 // HEADERS
 #include "./rlibinput.h"
-#include <errno.h>
 #include "./rlibstdio.h"
 #include "./rlibstr.h"
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
