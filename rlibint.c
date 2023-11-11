@@ -22,7 +22,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 void intobinary(unsigned int nbr, unsigned int length) {
     unsigned int i;
-    length = length-1;
+    length = length - 1;
 
     if (length > 30) {
         length = 30;
