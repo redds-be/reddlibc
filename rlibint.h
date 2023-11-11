@@ -22,7 +22,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 // Converts an int into binary and prints it
 void intobinary(unsigned int nbr, unsigned int length);
 
-#endif // REDDLIBC_RLIBINT_H
+#endif// REDDLIBC_RLIBINT_H
 
 /*
                _     _

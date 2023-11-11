@@ -21,15 +21,15 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #define REDDLIBC_RLIBSTR_H
 
 // Clean a string by removing \r and \n at the end of the string
-char * cleanstr(char * strToClean);
+char *cleanstr(char *strToClean);
 
 // Convert upper-case string to lower-case string
-char * lowerstr(char * str);
+char *lowerstr(char *str);
 
 // Convert lower-case string to upper-case string
-char * upperstr(char * str);
+char *upperstr(char *str);
 
-#endif // REDDLIBC_RLIBSTR_H
+#endif// REDDLIBC_RLIBSTR_H
 
 /*
                _     _

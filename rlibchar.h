@@ -25,7 +25,7 @@ char lowerchar(char character);
 // Convert lower-case char to upper-case char
 char upperchar(char character);
 
-#endif // REDDLIBC_RLIBCHAR_H
+#endif// REDDLIBC_RLIBCHAR_H
 
 /*
                _     _

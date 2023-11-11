@@ -22,7 +22,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 // Clears stdin
 void clearstdin(void);
 
-#endif // REDDLIBC_RLIBSTDIO_H
+#endif// REDDLIBC_RLIBSTDIO_H
 
 /*
                _     _
