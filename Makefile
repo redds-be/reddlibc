@@ -6,6 +6,7 @@ LIBDESTDIR = /usr/lib
 HEADERDESTDIR = /usr/include
 HEADERS = $(wildcard *.h)
 MANPAGES = $(shell find ./man -type f -name '*' -exec basename \{} \;)
+COMPMANPAGES = $(wildcard man/*.3.gz)
 MANDIR = /usr/share/man/man3
 
 all: obj lib manpage
@@ -25,7 +26,8 @@ manpage:
 install:
 	@install -o root -g root -m 0644 $(BINDIR)/reddlibc.a $(LIBDESTDIR)
 	@for header in $(HEADERS); do install -o root -g root -m 0644 $$header $(HEADERDESTDIR); done
-	@for m in $(MANPAGES); do install -o root -g root -m 0644 man/$$m.3.gz $(MANDIR) && links=$$(cat man/$$m | grep "()" | sed 's/.B //g' | sed 's/()//g') && for l in $$links; do ln -sf $(MANDIR)/$$m.3.gz $(MANDIR)/$$l.3.gz; done; done
+	@for m in $(COMPMANPAGES); do install -o root -g root -m 0644 $$m $(MANDIR); done
+	@for m in $(MANPAGES); do links=$$(cat man/$$m | grep "()" | sed 's/.B //g' | sed 's/()//g') && for l in $$links; do ln -sf $(MANDIR)/$$m.3.gz $(MANDIR)/$$l.3.gz; done; done
 
 uninstall:
 	@rm -f $(LIBDESTDIR)/reddlibc.a
