@@ -5,7 +5,6 @@ A static C library used for my convenience.
 ## TODO
 
 - [ ] Make a binary release
-- [ ] Write some documentation
 
 ## Installation
 To install this library you must :
