@@ -2,10 +2,6 @@
 
 A static C library used for my convenience.
 
-## TODO
-
-- [ ] Make a binary release
-
 ## Installation
 To install this library you must :
 
