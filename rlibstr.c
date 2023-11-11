@@ -21,12 +21,14 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include <ctype.h>
 #include <string.h>
 
+// Clean a string by removing \r and \n at the end of the string
 char *cleanstr(char *strToClean) {
     // Clean a string
     strToClean[strcspn(strToClean, "\r\n")] = 0;
     return strToClean;
 }
 
+// Convert upper-case string to lower-case string
 char *lowerstr(char *str) {
     // Transform a string into lowercase
     for (int i = 0; str[i]; i++) {
@@ -37,6 +39,7 @@ char *lowerstr(char *str) {
     return str;
 }
 
+// Convert lower-case string to upper-case string
 char *upperstr(char *str) {
     // Transform a string into uppercase
     for (int i = 0; str[i]; i++) {

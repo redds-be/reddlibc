@@ -20,6 +20,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "./rlibstdio.h"
 #include <stdio.h>
 
+// Clears stdin
 void clearstdin(void) {
     // Clear stdin
     int c;

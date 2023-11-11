@@ -19,16 +19,22 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #ifndef REDDLIBC_RLIBINPUT_H
 #define REDDLIBC_RLIBINPUT_H
 
+// Get a string (char *) input from the user
 char * inputstr(char * askStr, int strSize, char * lengthError, int acceptNull, char * nullError);
 
+// Get a char input from the user
 char inputchar(char * askStr);
 
+// Get an int input from the user
 int inputint(char * askStr, int intSize, char * lengthError, int acceptNull, char * nullError);
 
+// Get a double input from the user
 double inputdbl(char * askStr, int dblSize, char * lengthError, int acceptNull, char * nullError);
 
+// Get a float input from the user
 float inputfloat(char * askStr, int floatSize, char * lengthError, int acceptNull, char * nullError);
 
+// Get a long input from the user
 long inputlong(char * askStr, int longSize, char * lengthError, int acceptNull, char * nullError);
 
 #endif // REDDLIBC_RLIBINPUT_H

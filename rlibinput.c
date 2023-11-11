@@ -25,8 +25,9 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include <stdlib.h>
 #include <string.h>
 
+
+// Get a string (char *) input from the user
 char *inputstr(char *askStr, int strSize, char *lengthError, int acceptNull, char *nullError) {
-    // Get a string input
     static char str[1024];
     int isInputValid;
 
@@ -93,8 +94,8 @@ char *inputstr(char *askStr, int strSize, char *lengthError, int acceptNull, cha
     return returnStr;
 }
 
+// Get a char input from the user
 char inputchar(char *askStr) {
-    // Get a char input
     printf("%s", askStr);
     char outchar = (char) getchar();
 
@@ -103,8 +104,8 @@ char inputchar(char *askStr) {
     return outchar;
 }
 
+// Get an int input from the user
 int inputint(char *askStr, int intSize, char *lengthError, int acceptNull, char *nullError) {
-    // Get an integer input
     static char str[1024];
     long convertedLong;
     int isInputValid;
@@ -195,8 +196,8 @@ int inputint(char *askStr, int intSize, char *lengthError, int acceptNull, char 
     return nbr;
 }
 
+// Get a double input from the user
 double inputdbl(char *askStr, int dblSize, char *lengthError, int acceptNull, char *nullError) {
-    // Get a double input
     static char str[1024];
     double nbr;
     int isInputValid;
@@ -284,8 +285,8 @@ double inputdbl(char *askStr, int dblSize, char *lengthError, int acceptNull, ch
     return nbr;
 }
 
+// Get a float input from the user
 float inputfloat(char *askStr, int floatSize, char *lengthError, int acceptNull, char *nullError) {
-    // Get a float input
     static char str[1024];
     float nbr;
     int isInputValid;
@@ -373,8 +374,8 @@ float inputfloat(char *askStr, int floatSize, char *lengthError, int acceptNull,
     return nbr;
 }
 
+// Get a long input from the user
 long inputlong(char *askStr, int longSize, char *lengthError, int acceptNull, char *nullError) {
-    // Get a long input
     static char str[1024];
     long nbr;
     int isInputValid;

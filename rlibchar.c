@@ -20,11 +20,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "./rlibchar.h"
 #include <ctype.h>
 
+// Convert upper-case char to lower-case char
 char lowerchar(char character) {
     character = tolower(character);
     return character;
 }
 
+// Convert lower-case char to upper-case char
 char upperchar(char character) {
     character = toupper(character);
     return character;

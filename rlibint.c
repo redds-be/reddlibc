@@ -20,6 +20,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "./rlibint.h"
 #include <stdio.h>
 
+// Converts an int into binary and prints it
 void intobinary(unsigned int nbr, unsigned int length) {
     unsigned int i;
     length = length - 1;

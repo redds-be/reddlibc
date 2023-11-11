@@ -19,8 +19,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #ifndef REDDLIBC_RLIBCHAR_H
 #define REDDLIBC_RLIBCHAR_H
 
+// Convert upper-case char to lower-case char
 char lowerchar(char character);
 
+// Convert lower-case char to upper-case char
 char upperchar(char character);
 
 #endif // REDDLIBC_RLIBCHAR_H
