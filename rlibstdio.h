@@ -19,7 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #ifndef REDDLIBC_RLIBSTDIO_H
 #define REDDLIBC_RLIBSTDIO_H
 
-// Clears stdin
+// Clear stdin
 void clearstdin(void);
 
 #endif// REDDLIBC_RLIBSTDIO_H
