@@ -26,7 +26,7 @@ user@host:reddlibc$ make
 Run `make install` as `root`.
 
 ```console
-root@host:reddlibc$ make install
+root@host:reddlibc# make install
 ```
 
 ### Manually
@@ -43,7 +43,7 @@ root@host:reddlibc$ make install
 Run `make uninstall` as `root`.
 
 ```console
-root@host:reddlibc$ make uninstall
+root@host:reddlibc# make uninstall
 ```
 
 ### Manually
