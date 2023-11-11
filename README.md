@@ -16,19 +16,9 @@ To install this library you must :
 ## Uninstalling
 Follow these [instructions](https://github.com/redds-be/reddlibc/wiki/Uninstalling).
 
-## Usage when compiling your program
+## Usage
 
-Exemple :
-
-```console
-user@host:cproject$ gcc main.c -l:reddlibc.a
-```
-
-`main.c` : Your program
-
-`-l:reddlibc.a` : Name of the library
-
-> NOTE : If the library was installed in a directory were gcc does not look for libraries by default, add `-L /path/to/lib/dir` before `-l:reddlibc.a`.
+Read the wiki's [Basic Usage](https://github.com/redds-be/reddlibc/wiki/Basic-Usage) page.
 
 ## LICENSING
 
