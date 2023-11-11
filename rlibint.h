@@ -19,7 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #ifndef REDDLIBC_RLIBINT_H
 #define REDDLIBC_RLIBINT_H
 
-// Converts an int into binary and prints it
+// Convert an int into binary and prints it
 void intobinary(unsigned int nbr, unsigned int length);
 
 #endif// REDDLIBC_RLIBINT_H
