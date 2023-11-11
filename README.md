@@ -10,8 +10,8 @@ A static C library used for my convenience.
 ## Installation
 To install this library you must :
 
-1. [Compile the library.](https://github.com/redds-be/reddlibc/wiki/Compiling)
-2. [Install the library.](https://github.com/redds-be/reddlibc/wiki/Installing)
+1. [Compile the library](https://github.com/redds-be/reddlibc/wiki/Compiling).
+2. [Install the library](https://github.com/redds-be/reddlibc/wiki/Installing).
 
 ## Uninstalling
 Follow these [instructions](https://github.com/redds-be/reddlibc/wiki/Uninstalling).
