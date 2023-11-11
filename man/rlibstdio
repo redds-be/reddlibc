@@ -1,0 +1,26 @@
+.\" Manpage for rlibstdio (part of reddlibc).
+.\" Contact redd@redds.be to correct errors or typos.
+.TH man 3 "11 November 2023" "1.0" "rlibstdio man page (reddlibc)"
+.SH NAME
+rlibstdio, clearstdin
+.SH SYNOPSIS
+.B #include <rlibstdio.h>
+
+.B void clearstdin(void);
+.SH DESCRIPTION
+The
+.B clearstdin()
+.R function clears stdin.
+
+.SH NOTES
+When including this header, make sure to link reddlibc.a (in /usr/lib/ on default reddlibc installs) when compiling.
+.SH SEE ALSO
+rlibstr(3), rlibinput(3), rlibchar(3), rlibint(3)
+.SH BUGS
+No known bugs. Although some consider that they are a feature in C.
+.SH AUTHOR
+redd (redd@redds.be)
+.SH COPYRIGHT
+Licensed under the GPLv3 license (https://www.gnu.org/licenses/gpl-3.0.html) This is free software: your are free to change and, redistribute it. There is NO WARRANTY, to the extent permitted by law.
+
+Copyright (C) 2023 redd

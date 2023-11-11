@@ -1,0 +1,145 @@
+.\" Manpage for rlibinput (part of reddlibc).
+.\" Contact redd@redds.be to correct errors or typos.
+.TH man 3 "11 November 2023" "1.0" "rlibinput man page (reddlibc)"
+.SH NAME
+rlibinput, inputstr, inputchar, inputint, inputdbl, inputfloat, inputlong
+.SH SYNOPSIS
+.B #include <rlibinput.h>
+
+.B char *inputstr(char *askStr, int strSize, char *lengthError, int acceptNull, char *nullError);
+
+.B char inputchar(char *askStr);
+
+.B int inputint(char *askStr, int intSize, char *lengthError, int acceptNull, char *nullError);
+
+.B double inputdbl(char *askStr, int dblSize, char *lengthError, int acceptNull, char *nullError);
+
+.B float inputfloat(char *askStr, int floatSize, char *lengthError, int acceptNull, char *nullError);
+
+.B long inputlong(char *askStr, int longSize, char *lengthError, int acceptNull, char *nullError);
+.SH DESCRIPTION
+The
+.B inputstr()
+.R function gets a string (char *) from the user. It returns a (char *), it takes:
+
+.B \t askStr:
+.R A string used to prompt the user. Can be \(dq\(dq if you don't want to use it.
+
+.B \t strSize:
+.R An int to set the max size of the input. (If 0, default to 1024)
+
+.B \t lengthError:
+.R A string used to tell the user length of the input is invalid. (If \(dq\(dq, it will default to : \(dqThe length of the input is invalid.\(dq)
+
+.B \t acceptNull:
+.R A boolean (0 or 1) used to accept a empty input as a valid input. (0 = accept empty string, 1 = error if the string is empty, if neither 0 or 1, it will default to 0)
+
+.B \t nullError:
+.R A string used to inform the user that the input is invalid if acceptNull = 1 and the input is empty. (If \(dq\(dq, it will default to \(dqThe input is invalid.\(dq)
+
+\t/!\(rs Make sure to
+.B free()
+.R the return value.
+
+The
+.B inputchar()
+.R function gets a char from the user. It returns a char, it takes:
+
+.B \t askStr:
+.R A string used to prompt the user. Can be \(dq\(dq if you don't want to use it.
+
+The
+.B inputint()
+.R function gets an int from the user. It returns an int, it takes:
+
+/!\(rs Maximum size of an int input is 9 bytes.
+
+.B \t askStr:
+.R A string used to prompt the user. Can be \(dq\(dq if you don't want to use it.
+
+.B \t intSize:
+.R An int to set the max size of the input. (If 0, default to 1024)
+
+.B \t lengthError:
+.R A string used to tell the user length of the input is invalid. (If \(dq\(dq, it will default to : \(dqThe length of the input is invalid.\(dq)
+
+.B \t acceptNull:
+.R A boolean (0 or 1) used to accept a empty input as a valid input. (0 = accept empty string, 1 = error if the string is empty, if neither 0 or 1, it will default to 0)
+
+.B \t nullError:
+.R A string used to inform the user that the input is invalid if acceptNull = 1 and the input is empty. (If \(dq\(dq, it will default to \(dqThe input is invalid.\(dq)
+
+The
+.B inputdbl()
+.R function gets a double from the user. It returns a double, it takes:
+
+/!\(rs Maximum size of a double input is 9 bytes.
+
+.B \t askStr:
+.R A string used to prompt the user. Can be \(dq\(dq if you don't want to use it.
+
+.B \t dblSize:
+.R An int to set the max size of the input. (If 0, default to 1024)
+
+.B \t lengthError:
+.R A string used to tell the user length of the input is invalid. (If \(dq\(dq, it will default to : \(dqThe length of the input is invalid.\(dq)
+
+.B \t acceptNull:
+.R A boolean (0 or 1) used to accept a empty input as a valid input. (0 = accept empty string, 1 = error if the string is empty, if neither 0 or 1, it will default to 0)
+
+.B \t nullError:
+.R A string used to inform the user that the input is invalid if acceptNull = 1 and the input is empty. (If \(dq\(dq, it will default to \(dqThe input is invalid.\(dq)
+
+The
+.B inputfloat()
+.R function gets a float from the user. It returns a float, it takes:
+
+/!\(rs Maximum size of a float input is 9 bytes.
+
+.B \t askStr:
+.R A string used to prompt the user. Can be \(dq\(dq if you don't want to use it.
+
+.B \t floatSize:
+.R An int to set the max size of the input. (If 0, default to 1024)
+
+.B \t lengthError:
+.R A string used to tell the user length of the input is invalid. (If \(dq\(dq, it will default to : \(dqThe length of the input is invalid.\(dq)
+
+.B \t acceptNull:
+.R A boolean (0 or 1) used to accept a empty input as a valid input. (0 = accept empty string, 1 = error if the string is empty, if neither 0 or 1, it will default to 0)
+
+.B \t nullError:
+.R A string used to inform the user that the input is invalid if acceptNull = 1 and the input is empty. (If \(dq\(dq, it will default to \(dqThe input is invalid.\(dq)
+
+The
+.B inputlong()
+.R function gets a long from the user. It returns a long, it takes:
+
+/!\(rs Maximum size of a long input is 9 bytes.
+
+.B \t askStr:
+.R A string used to prompt the user. Can be \(dq\(dq if you don't want to use it.
+
+.B \t longSize:
+.R An int to set the max size of the input. (If 0, default to 1024)
+
+.B \t lengthError:
+.R A string used to tell the user length of the input is invalid. (If \(dq\(dq, it will default to : \(dqThe length of the input is invalid.\(dq)
+
+.B \t acceptNull:
+.R A boolean (0 or 1) used to accept a empty input as a valid input. (0 = accept empty string, 1 = error if the string is empty, if neither 0 or 1, it will default to 0)
+
+.B \t nullError:
+.R A string used to inform the user that the input is invalid if acceptNull = 1 and the input is empty. (If \(dq\(dq, it will default to \(dqThe input is invalid.\(dq)
+.SH NOTES
+When including this header, make sure to link reddlibc.a (in /usr/lib/ on default reddlibc installs) when compiling.
+.SH SEE ALSO
+rlibstr(3), rlibchar(3), rlibstdio(3), rlibint(3)
+.SH BUGS
+No known bugs. Although some consider that they are a feature in C.
+.SH AUTHOR
+redd (redd@redds.be)
+.SH COPYRIGHT
+Licensed under the GPLv3 license (https://www.gnu.org/licenses/gpl-3.0.html) This is free software: your are free to change and, redistribute it. There is NO WARRANTY, to the extent permitted by law.
+
+Copyright (C) 2023 redd

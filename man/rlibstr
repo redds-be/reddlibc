@@ -1,0 +1,46 @@
+.\" Manpage for rlibstr (part of reddlibc).
+.\" Contact redd@redds.be to correct errors or typos.
+.TH man 3 "11 November 2023" "1.0" "rlibstr man page (reddlibc)"
+.SH NAME
+rlibstr, cleanstr, lowerstr, upperstr
+.SH SYNOPSIS
+.B #include <rlibstr.h>
+
+.B char *cleanstr(char *strToClean);
+
+.B char *lowerstr(char *str);
+
+.B char *upperstr(char *str);
+.SH DESCRIPTION
+The
+.B cleanstr()
+.R function cleans a string by removing \(rsr and \(rsn at the end of the string. It returns a (char *), it takes:
+
+.B \t strToClean:
+.R The string that will be cleaned.
+
+The
+.B lowerstr()
+.R function converts upper-case string to lower-case string. It returns a (char *), it takes:
+
+.B \t str:
+.R The string that will be converted.
+
+The
+.B upperstr()
+.R function converts lower-case string to upper-case string. It returns a (char *), it takes:
+
+.B \t str:
+.R The string that will be converted.
+.SH NOTES
+When including this header, make sure to link reddlibc.a (in /usr/lib/ on default reddlibc installs) when compiling.
+.SH SEE ALSO
+rlibinput(3), rlibchar(3), rlibstdio(3), rlibint(3)
+.SH BUGS
+No known bugs. Although some consider that they are a feature in C.
+.SH AUTHOR
+redd (redd@redds.be)
+.SH COPYRIGHT
+Licensed under the GPLv3 license (https://www.gnu.org/licenses/gpl-3.0.html) This is free software: your are free to change and, redistribute it. There is NO WARRANTY, to the extent permitted by law.
+
+Copyright (C) 2023 redd

@@ -1,0 +1,32 @@
+.\" Manpage for rlibint (part of reddlibc).
+.\" Contact redd@redds.be to correct errors or typos.
+.TH man 3 "11 November 2023" "1.0" "rlibint man page (reddlibc)"
+.SH NAME
+rlibint, intobinary
+.SH SYNOPSIS
+.B #include <rlibint.h>
+
+.B void intobinary(unsigned int nbr, unsigned int length);
+.SH DESCRIPTION
+The
+.B intobinary()
+.R function convert an unsigned int into binary and prints it. It takes:
+
+.B \t nbr:
+.R An unsigned int to convert to binary
+
+.B \t length:
+.R The max length of the binary number that will be printed. (If > 30, it will default to 30)
+
+.SH NOTES
+When including this header, make sure to link reddlibc.a (in /usr/lib/ on default reddlibc installs) when compiling.
+.SH SEE ALSO
+rlibstr(3), rlibinput(3), rlibchar(3), rlibstdio(3)
+.SH BUGS
+No known bugs. Although some consider that they are a feature in C.
+.SH AUTHOR
+redd (redd@redds.be)
+.SH COPYRIGHT
+Licensed under the GPLv3 license (https://www.gnu.org/licenses/gpl-3.0.html) This is free software: your are free to change and, redistribute it. There is NO WARRANTY, to the extent permitted by law.
+
+Copyright (C) 2023 redd
