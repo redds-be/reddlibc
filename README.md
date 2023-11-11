@@ -7,49 +7,14 @@ A static C library used for my convenience.
 - [ ] Make a binary release
 - [ ] Write some documentation
 
-## Compiling
+## Installation
+To install this library you must :
 
-*You must have `make, gcc, binutils` installed to follow this step.*
-
-Run `make` as any user (preferably **not** `root`).
-
-```console
-user@host:reddlibc$ make
-```
-
-## Installing
-
-### Makefile
-
-*You must have `make` installed to follow this step.*
-
-Run `make install` as `root`.
-
-```console
-root@host:reddlibc# make install
-```
-
-### Manually
-
-1. Copy all the header files into `/usr/include` or another directory fitting for header files.
-2. Copy `bin/reddlibc.a` into `/usr/lib` or another directory fitting for a library.
+1. [Compile the library.](https://github.com/redds-be/reddlibc/wiki/Compiling)
+2. [Install the library.](https://github.com/redds-be/reddlibc/wiki/Installing)
 
 ## Uninstalling
-
-### Makefile
-
-*You must have `make` installed to follow this step.*
-
-Run `make uninstall` as `root`.
-
-```console
-root@host:reddlibc# make uninstall
-```
-
-### Manually
-
-1. Delete all the previously installed header files from `/usr/include` or another directory you choose when installing manually.
-2. Delete `reddlibc.a` from `/usr/lib` or another directory you choose when installing manually.
+Follow these [instructions](https://github.com/redds-be/reddlibc/wiki/Uninstalling).
 
 ## Usage when compiling your program
 
