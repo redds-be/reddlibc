@@ -38,7 +38,7 @@ The
 .R A string used to inform the user that the input is invalid if acceptNull = 1 and the input is empty. (If \(dq\(dq, it will default to \(dqThe input is invalid.\(dq)
 
 \t/!\(rs Make sure to
-.B free()
+.B free
 .R the return value.
 
 The
