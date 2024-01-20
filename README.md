@@ -1,5 +1,7 @@
 # reddlibc
 
+⚠️ Deprecation warning: Some of the functions (if not all of them) are insecure and need to be re-written to at least make them secure/return errors. Due to a lack of time, this may take a while.
+
 A static C library used for my convenience.
 
 ## Installation
