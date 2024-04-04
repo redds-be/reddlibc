@@ -32,12 +32,3 @@ void intobinary(unsigned int nbr, unsigned int length) {
     for (i = 1 << length; i > 0; i = i / 2)
         (nbr & i) ? printf("1") : printf("0");
 }
-
-/*
-               _     _
-              | |   | |
-  _ __ ___  __| | __| |
- | '__/ _ \/ _` |/ _` |
- | | |  __/ (_| | (_| |
- |_|  \___|\__,_|\__,_|
-*/

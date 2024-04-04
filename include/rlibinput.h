@@ -38,12 +38,3 @@ float inputfloat(char *askStr, int floatSize, char *lengthError, int acceptNull,
 long inputlong(char *askStr, int longSize, char *lengthError, int acceptNull, char *nullError);
 
 #endif// REDDLIBC_RLIBINPUT_H
-
-/*
-               _     _
-              | |   | |
-  _ __ ___  __| | __| |
- | '__/ _ \/ _` |/ _` |
- | | |  __/ (_| | (_| |
- |_|  \___|\__,_|\__,_|
-*/

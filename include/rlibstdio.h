@@ -23,12 +23,3 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 void clearstdin(void);
 
 #endif// REDDLIBC_RLIBSTDIO_H
-
-/*
-               _     _
-              | |   | |
-  _ __ ___  __| | __| |
- | '__/ _ \/ _` |/ _` |
- | | |  __/ (_| | (_| |
- |_|  \___|\__,_|\__,_|
-*/
