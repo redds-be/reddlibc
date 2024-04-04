@@ -1,7 +1,7 @@
 BUILDIR = ./build
 BINDIR = ./bin
 CFILES = $(shell find ./src -type f -name '*.c' -exec basename \{} \;)
-OBJFILES = $(shell find . -type f -name '*.o' -exec basename \{} \;)
+OBJFILES = $(wildcard *.o)
 LIBDESTDIR = /usr/lib
 HEADERDESTDIR = /usr/include
 HEADERS = $(shell find ./include -type f -name '*.h' -exec basename \{} \;)
@@ -15,7 +15,7 @@ prep: clean format lint
 
 obj:
 	@mkdir -p $(BUILDIR)
-	@for c in $(CFILES); do gcc -c src/$$c; done && mv $(OBJFILES) build/
+	@cd $(BUILDIR) && for c in $(CFILES); do gcc -c ../src/$$c; done
 
 lib:
 	@mkdir -p $(BUILDIR)
