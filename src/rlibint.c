@@ -1,5 +1,5 @@
 /*
-A C program that handles some char manipulation.
+A C program that handles some int manipulation.
 Copyright (C) 2023 redd
 
 This program is free software: you can redistribute it and/or modify
@@ -17,19 +17,20 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 // HEADERS
-#include "./rlibchar.h"
-#include <ctype.h>
+#include "../include/rlibint.h"
+#include <stdio.h>
 
-// Convert upper-case char to lower-case char
-char lowerchar(char character) {
-    character = tolower(character);
-    return character;
-}
+// Converts an int into binary and prints it
+void intobinary(unsigned int nbr, unsigned int length) {
+    unsigned int i;
+    length = length - 1;
 
-// Convert lower-case char to upper-case char
-char upperchar(char character) {
-    character = toupper(character);
-    return character;
+    if (length > 30) {
+        length = 30;
+    }
+
+    for (i = 1 << length; i > 0; i = i / 2)
+        (nbr & i) ? printf("1") : printf("0");
 }
 
 /*
