@@ -1,5 +1,5 @@
 /*
-A C program that handles some standard input/output manipulation.
+A C program that handles some char manipulation.
 Copyright (C) 2023 redd
 
 This program is free software: you can redistribute it and/or modify
@@ -17,14 +17,19 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 // HEADERS
-#include "./rlibstdio.h"
-#include <stdio.h>
+#include "../include/rlibchar.h"
+#include <ctype.h>
 
-// Clears stdin
-void clearstdin(void) {
-    // Clear stdin
-    int c;
-    while ((c = getchar()) != '\n' && c != EOF) {}
+// Convert upper-case char to lower-case char
+char lowerchar(char character) {
+    character = tolower(character);
+    return character;
+}
+
+// Convert lower-case char to upper-case char
+char upperchar(char character) {
+    character = toupper(character);
+    return character;
 }
 
 /*

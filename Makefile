@@ -1,10 +1,10 @@
 BUILDIR = ./build
 BINDIR = ./bin
-CFILES = $(wildcard *.c)
-OBJFILES = $(wildcard *.o)
+CFILES = $(shell find ./src -type f -name '*.c' -exec basename \{} \;)
+OBJFILES = $(shell find . -type f -name '*.o' -exec basename \{} \;)
 LIBDESTDIR = /usr/lib
 HEADERDESTDIR = /usr/include
-HEADERS = $(wildcard *.h)
+HEADERS = $(shell find ./include -type f -name '*.h' -exec basename \{} \;)
 MANPAGES = $(shell find ./man -type f -name '*' -exec basename \{} \;)
 COMPMANPAGES = $(wildcard man/*.3.gz)
 MANDIR = /usr/share/man/man3
@@ -13,7 +13,7 @@ all: obj lib manpage
 
 obj:
 	@mkdir -p $(BUILDIR)
-	@cp $(CFILES) $(HEADERS) $(BUILDIR) && cd $(BUILDIR) && gcc -c $(CFILES)
+	@for c in $(CFILES); do gcc -c src/$$c; done && mv $(OBJFILES) build/
 
 lib:
 	@mkdir -p $(BUILDIR)
@@ -25,7 +25,7 @@ manpage:
 
 install:
 	@install -o root -g root -m 0644 $(BINDIR)/reddlibc.a $(LIBDESTDIR)
-	@for header in $(HEADERS); do install -o root -g root -m 0644 $$header $(HEADERDESTDIR); done
+	@for header in $(HEADERS); do install -o root -g root -m 0644 include/$$header $(HEADERDESTDIR); done
 	@for m in $(COMPMANPAGES); do install -o root -g root -m 0644 $$m $(MANDIR); done
 	@for m in $(MANPAGES); do links=$$(cat man/$$m | grep "()" | sed 's/.B //g' | sed 's/()//g') && for l in $$links; do ln -sf $(MANDIR)/$$m.3.gz $(MANDIR)/$$l.3.gz; done; done
 

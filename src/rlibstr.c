@@ -17,7 +17,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 // HEADERS
-#include "./rlibstr.h"
+#include "../include/rlibstr.h"
 #include <ctype.h>
 #include <string.h>
 
