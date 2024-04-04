@@ -30,12 +30,3 @@ char *lowerstr(char *str);
 char *upperstr(char *str);
 
 #endif// REDDLIBC_RLIBSTR_H
-
-/*
-               _     _
-              | |   | |
-  _ __ ___  __| | __| |
- | '__/ _ \/ _` |/ _` |
- | | |  __/ (_| | (_| |
- |_|  \___|\__,_|\__,_|
-*/

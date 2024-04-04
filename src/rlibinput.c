@@ -462,12 +462,3 @@ long inputlong(char *askStr, int longSize, char *lengthError, int acceptNull, ch
 
     return nbr;
 }
-
-/*
-               _     _
-              | |   | |
-  _ __ ___  __| | __| |
- | '__/ _ \/ _` |/ _` |
- | | |  __/ (_| | (_| |
- |_|  \___|\__,_|\__,_|
-*/
