@@ -9,7 +9,9 @@ MANPAGES = $(shell find ./man -type f -name '*' -exec basename \{} \;)
 COMPMANPAGES = $(wildcard man/*.3.gz)
 MANDIR = /usr/share/man/man3
 
-all: obj lib manpage
+all: clean obj lib manpage
+
+prep: clean format lint
 
 obj:
 	@mkdir -p $(BUILDIR)
@@ -35,10 +37,10 @@ uninstall:
 	@for m in $(MANPAGES); do find -L $(MANDIR) -samefile $(MANDIR)/$$m.3.gz -delete; done
 
 format:
-	@for f in $(CFILES); do clang-format -i $$f; done
+	@for f in $(CFILES); do clang-format -i src/$$f; done
 
 lint:
-	@for f in $(CFILES); do clang-tidy $$f -- -Imy_project/include -DMY_DEFINES && cppcheck $$f && cpplint $$f && include-what-you-use $$f; done
+	@for f in $(CFILES); do clang-tidy src/$$f -- -Imy_project/include -DMY_DEFINES && cppcheck src/$$f && cpplint src/$$f && include-what-you-use src/$$f; done
 
 clean:
 	@rm -rf $(BUILDIR)
